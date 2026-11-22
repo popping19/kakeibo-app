@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>家計簿アプリ</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>家計簿アプリ</h1>
+  </header>
+
+  <main>
+    <!-- 入力機能 -->
+    <section id="input-section">
+      <h2>収支を登録</h2>
+      <form id="entry-form">
+        <div>
+          <label for="date">日付</label>
+          <input type="date" id="date" name="date" required>
+        </div>
+
+        <div>
+          <label for="item">品目</label>
+          <input type="text" id="item" name="item" placeholder="例：食費" required>
+        </div>
+
+        <fieldset>
+          <legend>収支の種類</legend>
+          <label>
+            <input type="radio" name="type" value="expense" checked>
+            支出
+          </label>
+          <label>
+            <input type="radio" name="type" value="income">
+            収入
+          </label>
+        </fieldset>
+
+        <div>
+          <label for="amount">金額（円）</label>
+          <input type="text" id="amount" name="amount" inputmode="numeric" pattern="[0-9]+" required>
+        </div>
+
+        <div>
+          <label for="memo">メモ</label>
+          <textarea id="memo" name="memo" rows="3" placeholder="任意"></textarea>
+        </div>
+
+        <button type="submit" id="register-button">登録</button>
+      </form>
+    </section>
+
+    <!-- 出力機能：合計金額 -->
+    <section id="summary-section">
+      <h2>合計金額</h2>
+      <dl>
+        <div>
+          <dt>収入合計</dt>
+          <dd id="total-income">0円</dd>
+        </div>
+        <div>
+          <dt>支出合計</dt>
+          <dd id="total-expense">0円</dd>
+        </div>
+        <div>
+          <dt>残高</dt>
+          <dd id="total-balance">0円</dd>
+        </div>
+      </dl>
+    </section>
+
+    <!-- 出力機能：日ごとの棒グラフ -->
+    <section id="chart-section">
+      <h2>日ごとの収支グラフ</h2>
+      <canvas id="daily-chart" width="600" height="300" aria-label="日ごとの収入と支出の棒グラフ" role="img"></canvas>
+    </section>
+
+    <!-- 出力機能：登録データ一覧 -->
+    <section id="list-section">
+      <h2>登録データ一覧</h2>
+      <table id="entry-table">
+        <thead>
+          <tr>
+            <th>日付</th>
+            <th>品目</th>
+            <th>種類</th>
+            <th>金額</th>
+            <th>メモ</th>
+          </tr>
+        </thead>
+        <tbody id="entry-list">
+          <!-- 登録データがここに表示されます -->
+        </tbody>
+      </table>
+    </section>
+  </main>
+
+  <footer>
+    <p>家計簿アプリ</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

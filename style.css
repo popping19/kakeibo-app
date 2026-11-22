@@ -1,0 +1,121 @@
+:root {
+  --green: #4caf75;
+  --green-dark: #2d7a4e;
+  --green-light: #e6f6ea;
+  --green-border: #c9ebd2;
+  --bg: #f4fbf6;
+  --text: #2b3a31;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font: 16px/1.6 sans-serif; /* 16px未満だとiOSで入力時に拡大される */
+}
+
+header { background: var(--green); padding: 14px; text-align: center; }
+h1 { margin: 0px; color: #fff; font-size: 20px; }
+footer { padding: 20px; text-align: center; color: #888; font-size: 13px; }
+footer p { margin: 0; }
+
+main { max-width: 520px; margin: 0 auto; padding: 16px; }
+
+section {
+  margin-bottom: 16px;
+  padding: 16px;
+  background: #fff;
+  border: 1px solid var(--green-border);
+  border-radius: 14px;
+}
+
+h2 {
+  margin: 0 0 12px;
+  padding-left: 10px;
+  border-left: 4px solid var(--green);
+  color: var(--green-dark);
+  font-size: 17px;
+}
+
+/* ===== フォーム ===== */
+form > div, fieldset { margin-bottom: 14px; }
+label, legend { display: block; margin-bottom: 4px; font-size: 14px; font-weight: bold; }
+
+input[type="date"], input[type="text"], textarea {
+  display: block;
+  width: 100%;
+  height: 52px;
+  padding: 0 14px;
+  border: 1.5px solid var(--green-border);
+  border-radius: 12px;
+  background: var(--bg);
+  font: inherit;
+}
+
+textarea { height: auto; padding: 12px 14px; }
+
+input:focus, textarea:focus {
+  outline: none;
+  border-color: var(--green);
+  background: #fff;
+}
+
+/* 支出/収入：ボタン風ラジオ */
+fieldset {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-inline: 0;
+  padding: 0;
+  border: none;
+}
+legend { grid-column: 1 / -1; padding: 0; }
+fieldset input { display: none; }
+
+fieldset label {
+  margin: 0;
+  padding: 13px 0;
+  border: 1.5px solid var(--green-border);
+  border-radius: 12px;
+  background: var(--bg);
+  text-align: center;
+  cursor: pointer;
+}
+
+fieldset label:has(:checked) {
+  border-color: var(--green);
+  background: var(--green);
+  color: #fff;
+}
+
+/* ===== ボタン ===== */
+button {
+  width: 100%;
+  height: 56px;
+  border: none;
+  border-radius: 14px;
+  background: var(--green);
+  color: #fff;
+  font-size: 17px;
+  font-weight: bold;
+}
+
+/* JSで非活性になったボタンは薄い緑にする */
+button:disabled { background: var(--green-border); }
+
+/* ===== 出力 ===== */
+dl { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 0; }
+dl div { padding: 10px 12px; border-radius: 12px; background: var(--green-light); }
+dl div:last-child { grid-column: 1 / -1; }
+dt { font-size: 13px; color: #6b7f72; }
+dd { margin: 0; text-align: right; font-size: 20px; font-weight: bold; color: var(--green-dark); }
+
+canvas { width: 100%; height: auto; }
+
+#list-section { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; font-size: 14px; white-space: nowrap; }
+th { background: var(--green-light); color: var(--green-dark); }
+th, td { padding: 10px 8px; text-align: left; }
+tbody tr { border-bottom: 1px solid var(--green-light); }
